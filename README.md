@@ -22,7 +22,7 @@
     unpacker-panel.exe --server.port=8888
     ```
    - linux
-    ```
+    ```shell
     chmod 777 unpacker-panel
     ./unpacker-panel
     ./unpacker-panel --server.port=8888
