@@ -19,14 +19,12 @@
    - windows 直接打开或者指定端口运行
     ```batch
     unpacker-panel.exe
-    OR
     unpacker-panel.exe --server.port=8888
     ```
    - linux
     ```
     chmod 777 unpacker-panel
     ./unpacker-panel
-    OR
     ./unpacker-panel --server.port=8888
     ```
 4. 浏览器访问 `http://ip:port`
