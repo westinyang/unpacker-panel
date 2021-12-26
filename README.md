@@ -21,8 +21,8 @@
 
 网页面板
 
-![](./screenshot/light.png)
+![light.png](./screenshot/light.png)
 
 后台日志
 
-![](./screenshot/log.png)
+![log.png](./screenshot/log.png)
