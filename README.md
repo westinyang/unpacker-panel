@@ -8,6 +8,8 @@
 
 ## 说明
 
+> 该工具仅仅用来学习交流, 请勿用于非法用途, 否则后果自付！
+
 - adb `sudo apt install android-tools-adb`
 - 电脑连接刷好Youpk的Pixel 1代，或者编译Youpk适配的其他安卓设备
 - 运行程序，默认端口：8888（后台运行可以用 nohup / screen / tmux 等命令 ）
