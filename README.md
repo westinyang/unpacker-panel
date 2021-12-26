@@ -3,7 +3,7 @@
 ## 介绍
 基于Youpk脱壳机的一键脱壳Web面板
 
-- 目前仅支持单个设备控制，不支持并发和任务队列（如果并发会导致程序异常）  
+- 目前仅支持单个设备控制，不支持多设备并发和任务队列（如果并发会导致程序异常）  
 - 可以先下载编译好的程序，支持 windows、linux（刚撸了几天代码还比较乱，暂时还未开源）
 - **发行版入群下载：190033401**
 
@@ -11,14 +11,25 @@
 
 > 该工具仅仅用来学习交流, 请勿用于非法用途, 否则后果自付！
 
-- adb `sudo apt install android-tools-adb`
-- 电脑连接刷好Youpk的Pixel 1代，或者编译Youpk适配的其他安卓设备
-- 运行程序，默认端口：8888
+1. ADB环境
+   - windows `自己配置好adb环境变量`
+   - linux `sudo apt install android-tools-adb`
+2. 电脑连接刷好Youpk的Pixel 1代，或者编译Youpk适配的其他安卓设备
+3. 运行程序，不指定端口默认就是：8888
+   - windows 直接打开或者指定端口运行
     ```batch
     unpacker-panel.exe
+    OR
     unpacker-panel.exe --server.port=8888
     ```
-- 浏览器访问 `http://ip:port`
+   - linux
+    ```
+    chmod 777 unpacker-panel
+    ./unpacker-panel
+    OR
+    ./unpacker-panel --server.port=8888
+    ```
+4. 浏览器访问 `http://ip:port`
 
 ## 截图
 
