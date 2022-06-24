@@ -62,6 +62,6 @@ https://github.com/westinyang/unpacker-panel
 
 ## 写在最后
 
-> 膜拜 Youlor 大佬提供的技术和思路，开发这个项目本身也是在学习技术和实践应用，底层由 Youpk 强力驱动！
+> 膜拜 Youlor 大佬提供的技术和思路，开发这个项目也是在学习技术和实践应用，底层由 Youpk 强力驱动！
 
 - [Youpk: 又一款基于ART的主动调用的脱壳机](https://bbs.pediy.com/thread-259854.htm)
