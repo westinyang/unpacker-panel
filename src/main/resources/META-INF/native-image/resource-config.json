@@ -1,0 +1,13 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"\\Qr_styles.ini\\E"
+    }, 
+    {
+      "pattern":"\\Qr_values.ini\\E"
+    }
+  ]},
+  "bundles":[
+  ]
+}

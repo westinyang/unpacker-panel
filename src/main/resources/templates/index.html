@@ -1,0 +1,214 @@
+<!doctype html><!--suppress ALL-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Unpacker Panel</title>
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+    <!-- Bootstrap v5.1.3 -->
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Bootstrap FileInput v5.2.7  -->
+    <link rel="stylesheet" href="/plugins/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="/plugins/bootstrap-fileinput/css/fileinput.min.css" media="all"/>
+    <link rel="stylesheet" href="/plugins/bootstrap-fileinput/themes/explorer/theme.min.css" media="all"/>
+    <!-- Index -->
+    <link rel="stylesheet" href="/assets/css/index.css">
+</head>
+<body>
+
+<!-- Nav -->
+<header class="p-2 bg-dark text-white border-bottom border-white">
+    <div class="container d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+        <a class="navbar-brand text-light mx-0 py-0" href="/" style="height: 38px; line-height: 38px;">
+            <img src="/assets/img/favicon.png" width="38" height="38" class="d-inline-block align-top" alt="">
+            &nbsp;Unpacker Panel
+        </a>
+        <div class="d-flex align-items-center">
+            <div class="w-100 me-3">
+            </div>
+            <div class="flex-shrink-0 dropdown">
+                <a href="#" class="d-block link-light text-decoration-none" id="dropdownSettings" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button type="button" style="width:38px;" class="btn btn-outline-light px-0 rounded-circle"><i class="bi bi-gear"></i></button>
+                </a>
+                <ul class="dropdown-menu text-small shadow bg-white" aria-labelledby="dropdownSettings" style="">
+                    <li><a class="dropdown-item" href="https://www.github.com/westinyang/unpacker-panel" target="_blank"><i class="bi bi-github"></i> 仓库地址</a></li>
+                    <li><a class="dropdown-item" href="javascript:;" id="settings-tech-swap"><i class="bi bi-qr-code-scan"></i> 扫码入群</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Title -->
+<div class="container px-3 py-3 pt-4 mx-auto text-center text-dark">
+    <h1 class="display-5">在线一键脱壳</h1>
+    <p class="lead">Online one-click shelling</p>
+</div>
+
+<!-- Content -->
+<div class="container">
+    <div class="row mb-2">
+        <div class="col-sm-12 col-md-6">
+            <div class="mb-2">
+                <div class="mb-2 bg-light">
+                    <!-- accept: application/vnd.android.package-archive || .apk -->
+                    <input type="file" id="file" name="file" accept=".apk" style="display: none;">
+                </div>
+                <!--
+                <button type="button" id="btn-upload" class="btn btn-primary">&emsp;上传&emsp;</button>
+                <button type="button" id="btn-reset" class="btn btn-outline-secondary">&emsp;重置&emsp;</button>
+                -->
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <div id="unpack-info" class="card bg-light text-dark mb-2">
+                <div class="card-header"><i class="bi bi-exclamation-circle"></i> 脱壳信息</div>
+                <div class="card-body">
+                    <p class="mb-0">等待上传APK ...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    <footer class="pt-4 border-top">
+        <small class="d-block mb-3 text-muted">&copy; 2022 domain</small>
+    </footer>
+    -->
+
+    <button id="btn-copy-qq" th:data-clipboard-text="${QQGroupNum}" style="display:none;"></button>
+</div>
+
+<!-- Template -->
+<script type="text/html" id="tpl-info">
+    <div class="bg-light" style="padding:20px 20px 0px 20px;">
+        <div style="text-align:center;display:block;"><img th:src="${QQGroupQRCode}" style="min-width:238px;min-height:250px;"/></div>
+    </div>
+</script>
+
+<!-- jQuery v3.5.1 -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap v5.1.3 -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap FileInput v5.2.7  -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.7/js/fileinput.min.js"></script>
+<script src="/plugins/bootstrap-fileinput/js/locales/zh.js"></script>
+<script src="/plugins/bootstrap-fileinput/themes/explorer/theme.min.js"></script>
+<!-- Layer v3.5.1 -->
+<script src="/plugins/layer/layer.js"></script>
+<!-- Clipboard v2.0.6 -->
+<script src="/plugins/clipboard/clipboard.min.js"></script>
+<script>
+    $(function () {
+        // 复制微信号
+        var clipboard = new ClipboardJS('#btn-copy-qq');
+        clipboard.on('success', function(e) {
+            layer.msg("已复制群号");
+            e.clearSelection();
+        });
+        clipboard.on('error', function(e) {
+        });
+
+        $("#settings-tech-swap").click(function () {
+            // 弹出提示
+            layer.open({
+                type: 1,
+                shade: 0.3,
+                shadeClose: true,
+                title: "<i class=\"bi bi-qr-code-scan\"></i> 扫码入群",
+                content: $("#tpl-info").html(),
+                btn: ['复制群号', '关闭'],
+                yes: function(index, layero){
+                    $("#btn-copy-qq").trigger("click");
+                }
+            });
+        });
+
+        $("#file").show().fileinput({
+            theme: "explorer",
+            // 不填写uploadUrl，设置form表单地址就是表单提交
+            uploadUrl: '/upload',
+            /*上传额外数据*/
+            //uploadExtraDat: {},
+            required: true,
+            showUpload: false,
+            showRemove: true,
+            showBrowse: true,
+            showCancel: false,
+            /*显示右上角关闭按钮*/
+            showClose: false,
+            /*显示拖拽区域*/
+            dropZoneEnabled: !isMobile(),
+            /*显示预览区*/
+            showPreview: !isMobile(),
+            minFileCount: 1,
+            maxFileCount: 1,
+            maxTotalFileCount: 1,
+            /*隐藏缩略图内容*/
+            hideThumbnailContent: false,
+            /*语言*/
+            language: 'zh',
+            /*浏览区域点击*/
+            //browseOnZoneClick: true,
+            //dropZoneClickTitle: "",
+            /*输入框提示*/
+            msgPlaceholder: "请选择APK文件 ...",
+            /*拖拽区域提示*/
+            dropZoneTitle: "拖拽APK文件到这里 …",
+            /*允许的预览类型*/
+            allowedPreviewTypes: [],
+            /*允许的文件扩展名*/
+            allowedFileExtensions: ['apk'],
+            /*预览窗格中每个文件的操作设置*/
+            fileActionSettings: {
+                showUpload: false,
+                showRemove: false,
+                showZoom: false,
+            },
+            /*合并异步请求回调*/
+            mergeAjaxCallbacks: true,
+            ajaxSettings: {
+                beforeSend: function() {
+                },
+                complete: function () {
+                },
+                success: function (data) {
+                    $("#file").fileinput('clear');
+                    if (data.code !== 0) {
+                        $("#unpack-info .card-body").html("<p class='mb-0 text-danger'>脱壳失败：" + data.message + "</p>");
+                        return;
+                    }
+                    var d = data.data;
+                    try { d.name = d.name.split("-")[1]; } catch (e) {}
+                    $("#unpack-info .card-body").html("<div class='text-success'><p>脱壳成功（任务耗时：" + d.time + "秒）</p><p class='mb-0'>下载链接：<a href='" + d.link + "'>" + d.name + "</a></p></div>");
+                },
+                error: function () {
+                }
+            }
+        }).on("filebatchselected", function(event, files) {
+            let _this = $(this);
+            // 兼容移动端选择文件不受限于 accept 属性
+            if (Object.keys(files).length) {
+                $("#unpack-info .card-body").html("<p class=\"mb-0\">处理中 ...</p>");
+                setTimeout(function () {
+                    _this.fileinput("upload");
+                }, 50);
+            }
+        });
+    });
+
+    function isMobile() {
+        if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i))) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

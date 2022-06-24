@@ -1,0 +1,51 @@
+html, body {
+    min-height: 100%;
+}
+
+body {
+    --bs-bg-opacity: 1;
+}
+.bg-dark:not(header) {
+    --bs-bg-opacity: 1;
+}
+.bg-light, .bg-white {
+    --bs-bg-opacity: 1;
+}
+.dropdown-menu.bg-white {
+    --bs-bg-opacity: 1;
+}
+
+.transparent-0-9 {
+    /*opacity: 0.9 !important;*/
+}
+
+.container {
+    /*max-width: 960px;*/
+}
+
+.file-preview {
+    border: none !important;
+    padding: 0 !important;
+}
+
+.file-drop-zone {
+    margin: 0 !important;
+}
+
+.kv-upload-progress {
+    display: none !important;
+}
+
+.form-control {
+    border: 1px solid rgba(0,0,0,.125) !important;
+}
+
+.file-drop-zone {
+    border: 1px dashed rgba(0,0,0,.225) !important;
+}
+
+/* Layer */
+
+.layui-layer .layui-layer-btn * {
+    font-size: 14px !important;
+}
