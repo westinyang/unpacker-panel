@@ -60,6 +60,11 @@
 
 https://github.com/westinyang/unpacker-panel
 
+## 技术交流
+
+- 知识星球：https://t.zsxq.com/07r8E7t2c  
+<a href="https://t.zsxq.com/07r8E7t2c"><img src="./screenshot/3.jpg" width="400"></a>
+
 ## 写在最后
 
 > 膜拜 Youlor 大佬提供的技术和思路，开发这个项目也是在学习技术和实践应用，底层由 Youpk 强力驱动！
