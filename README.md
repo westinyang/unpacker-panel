@@ -1,10 +1,12 @@
 # Unpacker Panel
 
 ## 项目介绍
+
 基于Youpk脱壳机的一键脱壳Web面板
 
 - 目前仅支持单个设备控制，不支持多设备并发和任务队列（如果并发会导致程序异常）  
 - 如需要下载编译好的程序（windows、linux），**请入群下载：190033401**
+- [关于脱壳失败和项目其他用途的探讨](https://github.com/westinyang/unpacker-panel/discussions/6)
 
 ## 使用说明
 
