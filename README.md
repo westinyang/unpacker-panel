@@ -64,8 +64,7 @@ https://github.com/westinyang/unpacker-panel
 
 ## 技术交流
 
-- 知识星球：https://t.zsxq.com/07r8E7t2c  
-<a href="https://t.zsxq.com/07r8E7t2c"><img src="./screenshot/3.jpg" width="400"></a>
+- 知识星球：[码力全开](https://docs.qq.com/doc/DQVlkcnlQUEFiQ3Rl)
 
 ## 写在最后
 
