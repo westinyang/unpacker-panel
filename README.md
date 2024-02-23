@@ -2,6 +2,8 @@
 
 ## 项目介绍
 
+> 技术咨询请来这里：[关于作者](https://kaihongpai.feishu.cn/wiki/CqWLwJRadibxztkrIWZcogWxnXd)
+
 基于Youpk脱壳机的一键脱壳Web面板
 
 - 目前仅支持单个设备控制，不支持多设备并发和任务队列（如果并发会导致程序异常）  
@@ -60,10 +62,6 @@
 ## 仓库地址
 
 https://github.com/westinyang/unpacker-panel
-
-## 技术交流
-
-- 知识星球：[码力全开](https://docs.qq.com/doc/DQVlkcnlQUEFiQ3Rl)
 
 ## 写在最后
 
